@@ -1,0 +1,26 @@
+<div class="page-header">
+  <%= link_to exam_lists_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_exam_list_path(@exam_list), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show exam_list</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Course:</dt>
+  <dd><%= @exam_list.course.course_name %></dd>
+
+  <dt>Section:</dt>
+  <dd><%= @exam_list.section.section_name %></dd>
+
+  <dt>Subject:</dt>
+  <dd><%= @exam_list.subject.subject_name %></dd>
+
+  <dt>Exam date:</dt>
+  <dd><%= @exam_list.exam_date %></dd>
+
+</dl>

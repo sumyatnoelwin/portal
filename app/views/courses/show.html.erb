@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to courses_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_course_path(@course), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show course</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Course name:</dt>
+  <dd><%= @course.course_name %></dd>
+
+  <dt>Related field:</dt>
+  <dd><%= @course.related_field %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= @course.description %></dd>
+
+</dl>

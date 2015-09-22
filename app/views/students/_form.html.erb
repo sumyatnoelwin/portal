@@ -1,0 +1,23 @@
+<%= simple_form_for(@student) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :student_name %>
+    <%= f.input :reg_no %>
+    <%= f.input :profile %>
+    <%= f.input :gender %>
+    <%= f.input :dob, as: :string, input_html: {class: :datepicker} %>
+    <%= f.input :nrc %>
+    <%= f.input :address %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :section_id, :as => :select, :collection=> @sections.map { |s| [s.section_name,s.id]  } %>
+    <%= f.input :guardian %>
+    <%= f.input :relation %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

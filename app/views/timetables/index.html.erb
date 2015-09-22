@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_timetable_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Timetable
+  <% end %>
+  <h1>Listing timetables</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+            <th>Section</th>
+            <th>Subject</th>
+            <th>Lecturer</th>
+            <th>Start Time</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @timetables) do |timetable| %>
+            <td><%= timetable.section_id %></td>
+            <td><%= timetable.subject_id %></td>
+            <td><%= timetable.lecturer_id %></td>
+            <td><%= timetable.start_time %></td>
+            <td><%= link_to 'Show', timetable %></td>
+        <td><%= link_to 'Edit', edit_timetable_path(timetable) %></td>
+        <td><%= link_to 'Destroy', timetable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,61 @@
+@import "bootstrap-variables.scss";
+@import "bootstrap-sprockets.scss";
+@import "bootstrap";
+@import 'bootstrap-datetimepicker';
+
+body {
+  padding-top: $navbar-height + 10px;
+}
+
+.page-header {
+  a.btn {
+    float: right;
+  }
+
+  a.btn + a.btn {
+    margin-right: 8px;
+  }
+}
+
+input[type="radio"], input[type="checkbox"] {
+  width: initial;
+  height: initial;
+  margin-top: 7px;
+}
+
+.navbar {
+  border-width: 0;
+
+  &-default {
+
+    .badge {
+      background-color: #fff;
+      color: $navbar-default-bg;
+    }
+  }
+
+  &-inve {
+
+    .badge {
+      background-color: #fff;
+      color: $navbar-inverse-bg;
+    }
+  }
+
+  &-brand {
+    line-height: 1;
+  }
+}
+
+.panel-layout
+{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #fff;
+  text-decoration :none;
+}
+
+.search-space
+{
+  margin-bottom: 10px;
+}

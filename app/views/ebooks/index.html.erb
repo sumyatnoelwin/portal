@@ -1,0 +1,59 @@
+<div class="page-header">
+  <%= link_to new_ebook_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Ebook
+  <% end %>
+  <h1>Listing ebooks</h1>
+</div>
+
+ <div class="panel panel-primary" id="accordion">
+  <div class="panel-heading">
+    <%= link_to '#search-form', 'data-toggle' => "collapse", 'data-parent' => "#accordion", 'aria-expanded' => "true", 'aria-controls' => "search-form" do %>
+    <h5 class="panel-layout"><b>Search Information</b></h5>
+    <% end %>
+  </div>
+
+  <div class="panel-body panel-collapse collaspe in" id="search-form">
+    <%= form_tag ebooks_path, :method => 'get' do %>
+      <div class="form-group">
+        <div class ="col-md-6 search-space">
+          <%= label :ebook_name, "Ebook Name" %>
+          <%= text_field_tag :ebook_name ,params[:ebook_name], :class => "form-control" %>
+        </div>
+        <div class ="col-md-6 search-space">
+          <%= label :category_name, "Category" %> 
+          <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :category_name, params[:category_id]), include_blank: true, :class => 'form-control' %>
+        </div>
+        <div class="col-md-10" >
+          <%= submit_tag :search, :class => "btn btn-default btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div> <!-- panel body -->
+</div> <!-- panel -->
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+            <th>Ebook name</th>
+            <th>File</th>
+            <th>Category</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @ebooks) do |ebook| %>
+            <td><%= ebook.ebook_name %></td>
+            <td><%= ebook.file %></td>
+            <td><%= ebook.category.category_name %></td>
+            <td><%= link_to 'Show', ebook %></td>
+        <td><%= link_to 'Edit', edit_ebook_path(ebook) %></td>
+        <td><%= link_to 'Destroy', ebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

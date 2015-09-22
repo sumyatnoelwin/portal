@@ -1,0 +1,15 @@
+<%= simple_form_for(@ebook) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :ebook_name %>
+    <%= f.input :file %>
+    <%= f.input :about %>
+    <%= f.input :category_id, :as => :select, :collection=> @categories.map { |c| [c.category_name,c.id]} %>
+    <%= f.input :uploader_id, :as => :select, :collection=> @staffs.map { |s| [s.staff_name,s.id]} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

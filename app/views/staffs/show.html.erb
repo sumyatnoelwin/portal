@@ -1,0 +1,38 @@
+<div class="page-header">
+  <%= link_to staffs_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_staff_path(@staff), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show staff</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Staff name:</dt>
+  <dd><%= @staff.staff_name %></dd>
+
+  <dt>Gender:</dt>
+  <dd><%= @staff.gender %></dd>
+
+  <dt>Dob:</dt>
+  <dd><%= @staff.dob %></dd>
+
+  <dt>Nrc:</dt>
+  <dd><%= @staff.nrc %></dd>
+
+  <dt>Post:</dt>
+  <dd><%= @staff.post %></dd>
+
+  <dt>Email:</dt>
+  <dd><%= @staff.email %></dd>
+
+  <dt>Address:</dt>
+  <dd><%= @staff.address %></dd>
+
+  <dt>Phone:</dt>
+  <dd><%= @staff.phone %></dd>
+
+</dl>

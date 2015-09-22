@@ -1,0 +1,50 @@
+<div class="page-header">
+  <%= link_to students_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_student_path(@student), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show student</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Student name:</dt>
+  <dd><%= @student.student_name %></dd>
+
+  <dt>Reg no:</dt>
+  <dd><%= @student.reg_no %></dd>
+
+  <dt>Profile:</dt>
+  <dd><%= @student.profile %></dd>
+
+  <dt>Gender:</dt>
+  <dd><%= @student.gender %></dd>
+
+  <dt>Dob:</dt>
+  <dd><%= @student.dob %></dd>
+
+  <dt>Nrc:</dt>
+  <dd><%= @student.nrc %></dd>
+
+  <dt>Address:</dt>
+  <dd><%= @student.address %></dd>
+
+  <dt>Email:</dt>
+  <dd><%= @student.email %></dd>
+
+  <dt>Phone:</dt>
+  <dd><%= @student.phone %></dd>
+
+  <dt>Section:</dt>
+  <dd><%= @student.section.section_name %></dd>
+
+  <dt>Guardian:</dt>
+  <dd><%= @student.guardian %></dd>
+
+  <dt>Relation:</dt>
+  <dd><%= @student.relation %></dd>
+
+</dl>

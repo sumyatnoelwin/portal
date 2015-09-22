@@ -1,0 +1,55 @@
+<div class="page-header">
+  <%= link_to new_lecturer_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Lecturer
+  <% end %>
+  <h1>Listing lecturers</h1>
+</div>
+
+ <div class="panel panel-primary" id="accordion">
+  <div class="panel-heading">
+    <%= link_to '#search-form', 'data-toggle' => "collapse", 'data-parent' => "#accordion", 'aria-expanded' => "true", 'aria-controls' => "search-form" do %>
+    <h5 class="panel-layout"><b>Search Information</b></h5>
+    <% end %>
+  </div>
+
+  <div class="panel-body panel-collapse collaspe in" id="search-form">
+    <%= form_tag lecturers_path, :method => 'get' do %>
+      <div class="form-group">
+        <div class ="col-md-12 search-space">
+          <%= label :lecturer_name, "Lecturer Name" %> 
+          <%= text_field_tag :lecturer_name ,params[:lecturer_name], :class => "form-control" %>
+        </div>
+        <div class="col-md-10">
+          <%= submit_tag :search, :class => "btn btn-default btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div> <!-- panel body -->
+</div> <!-- panel -->
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+            <th>Lecturer name</th>
+            <th>Gender</th>
+            <th>Phone</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @lecturers) do |lecturer| %>
+            <td><%= lecturer.lecturer_name %></td>
+            <td><%= lecturer.gender %></td>
+            <td><%= lecturer.phone %></td>
+            <td><%= link_to 'Show', lecturer %></td>
+        <td><%= link_to 'Edit', edit_lecturer_path(lecturer) %></td>
+        <td><%= link_to 'Destroy', lecturer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

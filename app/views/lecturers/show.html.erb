@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to lecturers_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_lecturer_path(@lecturer), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show lecturer</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Lecturer name:</dt>
+  <dd><%= @lecturer.lecturer_name %></dd>
+
+  <dt>Gender:</dt>
+  <dd><%= @lecturer.gender %></dd>
+
+  <dt>Dob:</dt>
+  <dd><%= @lecturer.dob %></dd>
+
+  <dt>Nrc:</dt>
+  <dd><%= @lecturer.nrc %></dd>
+
+  <dt>Email:</dt>
+  <dd><%= @lecturer.email %></dd>
+
+  <dt>Address:</dt>
+  <dd><%= @lecturer.address %></dd>
+
+  <dt>Phone:</dt>
+  <dd><%= @lecturer.phone %></dd>
+
+</dl>
