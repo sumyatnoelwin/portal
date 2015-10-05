@@ -48,7 +48,7 @@
     <tbody>
       <%= content_tag_for(:tr, @ebooks) do |ebook| %>
             <td><%= ebook.ebook_name %></td>
-            <td><%= ebook.file %></td>
+            <td><a href = 'ebook.file' >Ebook </a></td>
             <td><%= ebook.category.category_name %></td>
             <td><%= link_to 'Show', ebook %></td>
         <td><%= link_to 'Edit', edit_ebook_path(ebook) %></td>

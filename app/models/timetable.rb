@@ -14,7 +14,7 @@
 # t.datetime "updated_at"
 
 class Timetable < ActiveRecord::Base
-	validates :section_id, :subject_id, :lecturer_id, :start_time, :staff_id, :presence => true
+	# validates :section_id, :subject_id, :lecturer_id, :start_time, :staff_id, :presence => true
 
 	belongs_to :section
 	belongs_to :subject

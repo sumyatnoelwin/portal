@@ -13,6 +13,7 @@
 class Ebook < ActiveRecord::Base
 	validates :ebook_name, :file, :category_id, :uploader_id, :presence => true
 
+	mount_uploader :file, FileuploadUploader
 	belongs_to :category
 	belongs_to :staff
 end

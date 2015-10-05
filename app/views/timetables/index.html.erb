@@ -22,9 +22,9 @@
 
     <tbody>
       <%= content_tag_for(:tr, @timetables) do |timetable| %>
-            <td><%= timetable.section_id %></td>
-            <td><%= timetable.subject_id %></td>
-            <td><%= timetable.lecturer_id %></td>
+            <td><%= timetable.section.section_name %></td>
+            <td><%= timetable.subject.subject_name %></td>
+            <td><%= timetable.lecturer.lecturer_name %></td>
             <td><%= timetable.start_time %></td>
             <td><%= link_to 'Show', timetable %></td>
         <td><%= link_to 'Edit', edit_timetable_path(timetable) %></td>

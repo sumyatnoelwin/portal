@@ -4,8 +4,8 @@
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :author_id %>
-    <%= f.input :date %>
+    <%= f.input :author_id, :as => :select, :collection=> Student.all.map { |s| [s.student_name,s.id]  } %>
+    <%= f.input :date , as: :string, input_html: {class: :datepicker} %>
   </div>
 
   <div class="form-actions">

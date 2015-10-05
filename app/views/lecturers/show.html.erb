@@ -33,3 +33,31 @@
   <dd><%= @lecturer.phone %></dd>
 
 </dl>
+</br>
+  <h3>Teaching Schedule for lecturer</h3>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+            <th>Section</th>
+            <th>Subject</th>
+            <th>Date</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @ts) do |teaching_schedule| %>
+            <td><%= teaching_schedule.section.section_name %></td>
+            <td><%= teaching_schedule.subject.subject_name %></td>
+            <td><%= teaching_schedule.start_date %></td>
+            <td><%= link_to 'Show', teaching_schedule %></td>
+        <td><%= link_to 'Edit', edit_teaching_schedule_path(teaching_schedule) %></td>
+        <td><%= link_to 'Destroy', teaching_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

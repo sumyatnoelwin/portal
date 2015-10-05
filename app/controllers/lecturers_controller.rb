@@ -14,6 +14,7 @@ class LecturersController < ApplicationController
   end
 
   def show
+    @ts = TeachingSchedule.where(:lecturer_id => @lecturer.id)
     respond_with(@lecturer)
   end
 
