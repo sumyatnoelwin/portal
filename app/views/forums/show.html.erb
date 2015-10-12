@@ -22,5 +22,10 @@
 
   <dt>Date:</dt>
   <dd><%= @forum.date %></dd>
-
 </dl>
+
+<h2>Comments</h2>
+<%= render @forum.comments %>
+ 
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>

@@ -15,9 +15,9 @@
 class Result < ActiveRecord::Base
 	validates :exam_id, :student_id, :setion_id, :subject_id, :result, :presence => true
 
-	belong_to :student 
-	belong_to :exam_list
-	belong_to :section
-	belong_to :subject
+	# belong_to :student 
+	# belong_to :exam_list
+	# belong_to :section
+	# belong_to :subject
 
 end

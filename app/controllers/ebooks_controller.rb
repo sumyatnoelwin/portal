@@ -45,6 +45,10 @@ class EbooksController < ApplicationController
     respond_with(@ebook)
   end
 
+  def download_file
+    send_file @ebook.attachment.url
+  end
+
   private
     def set_ebook
       @ebook = Ebook.find(params[:id])

@@ -15,7 +15,7 @@
   <dd><%= @ebook.ebook_name %></dd>
 
   <dt>File:</dt>
-  <dd><%= @ebook.file %></dd>
+  <dd><%= link_to @ebook.ebook_name, @ebook.file_url %></dd>
 
   <dt>About:</dt>
   <dd><%= @ebook.about %></dd>

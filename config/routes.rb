@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   resources :ebooks
 
-  resources :forum_comments
+  get 'ebooks/download_file'
 
-  resources :forums
+  resources :forums do
+    resources :comments
+  end 
 
   resources :results
 
