@@ -56,14 +56,6 @@ ActiveRecord::Schema.define(version: 20151005072927) do
     t.datetime "updated_at"
   end
 
-  create_table "forum_comments", force: true do |t|
-    t.integer  "forum_id"
-    t.string   "comment"
-    t.integer  "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "forums", force: true do |t|
     t.string   "title"
     t.string   "description"
@@ -83,18 +75,7 @@ ActiveRecord::Schema.define(version: 20151005072927) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
   end
-
-  add_index "lecturers", ["email"], name: "index_lecturers_on_email", unique: true, using: :btree
-  add_index "lecturers", ["reset_password_token"], name: "index_lecturers_on_reset_password_token", unique: true, using: :btree
 
   create_table "results", force: true do |t|
     t.integer  "exam_id"
@@ -170,19 +151,7 @@ ActiveRecord::Schema.define(version: 20151005072927) do
     t.string   "relation"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
   end
-
-  add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree
-  add_index "students", ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
 
   create_table "subjects", force: true do |t|
     t.string   "subject_name"

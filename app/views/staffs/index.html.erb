@@ -11,7 +11,7 @@
     <thead>
       <tr>
             <th>Staff name</th>
-            <th>Gender</th>
+            <th>Email</th>
             <th>Post</th>
             <th>Phone</th>
             <th></th>
@@ -23,7 +23,7 @@
     <tbody>
       <%= content_tag_for(:tr, @staffs) do |staff| %>
             <td><%= staff.staff_name %></td>
-            <td><%= staff.gender %></td>
+            <td><%= staff.email %></td>
             <td><%= staff.post %></td>
             <td><%= staff.phone %></td>
             <td><%= link_to 'Show', staff %></td>

@@ -6,6 +6,37 @@
   <h1>Listing results</h1>
 </div>
 
+<div class="panel panel-primary" id="accordion">
+  <div class="panel-heading panel-layout">
+    <%= link_to '#search-form', 'data-toggle' => "collapse", 'data-parent' => "#accordion", 'aria-expanded' => "true", 'aria-controls' => "search-form" do %>
+    <h5 class="panel-layout"><b>Search Information</b></h5>
+    <% end %>
+  </div>
+
+  <div class="panel-body panel-collapse collaspe in" id="search-form">
+    <%= form_tag results_path, :method => 'get' do %>
+      <div class="form-group">
+        <div class ="col-md-6 search-space">
+          <%= label :student_id, "Student Name" %> 
+          <%= select_tag :student_id, options_from_collection_for_select(Student.all, :id, :student_name, params[:student_id]), include_blank: true, :class => 'form-control' %>
+        </div>
+        <div class ="col-md-6 search-space">
+          <%= label :section_id, "Section No" %> 
+          <%= select_tag :section_id, options_from_collection_for_select(Section.all, :id, :section_name, params[:section_id]), include_blank: true, :class => 'form-control' %>
+        </div>
+        <div class ="col-md-6 search-space">
+          <%= label :subject_id, "Subject Name" %> 
+          <%= select_tag :subject_id, options_from_collection_for_select(Subject.all, :id, :subject_name, params[:subject_id]), include_blank: true, :class => 'form-control' %>
+        </div>
+        <div class="col-md-10">
+          <%= submit_tag :search, :class => "btn btn-default btn-primary" %>
+        </div>
+      </div>
+
+    <% end %>
+  </div> <!-- panel body -->
+</div> <!-- panel -->
+
 <div class="table-responsive">
   <table class="table table-striped table-hover">
     <thead>
@@ -24,9 +55,9 @@
     <tbody>
       <%= content_tag_for(:tr, @results) do |result| %>
             <td><%= result.exam_id %></td>
-            <td><%= result.student_id %></td>
-            <td><%= result.setion_id %></td>
-            <td><%= result.subject_id %></td>
+            <td><%= result.student.student_name %></td>
+            <td><%= result.section.section_name %></td>
+            <td><%= result.subject.subject_name %></td>
             <td><%= result.result %></td>
             <td><%= link_to 'Show', result %></td>
         <td><%= link_to 'Edit', edit_result_path(result) %></td>

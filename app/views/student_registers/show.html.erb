@@ -12,10 +12,10 @@
 
 <dl class="dl-horizontal">
   <dt>Student:</dt>
-  <dd><%= @student_register.student_id %></dd>
+  <dd><%= @student_register.student.student_name %></dd>
 
   <dt>Section:</dt>
-  <dd><%= @student_register.section_id %></dd>
+  <dd><%= @student_register.section.section_name %></dd>
 
   <dt>Tution fees:</dt>
   <dd><%= @student_register.tution_fees %></dd>
@@ -33,7 +33,7 @@
   <dd><%= @student_register.complete_ef %></dd>
 
   <dt>Staff:</dt>
-  <dd><%= @student_register.staff_id %></dd>
+  <dd><%= @student_register.staff.staff_name %></dd>
 
   <dt>Remark:</dt>
   <dd><%= @student_register.remark %></dd>

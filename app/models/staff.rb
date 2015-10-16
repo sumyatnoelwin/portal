@@ -14,7 +14,7 @@
 # t.datetime "updated_at"
     
 class Staff < ActiveRecord::Base
-	validates :staff_name, :gender, :dob, :presence => true
+	validates :staff_name, :email, :dob, :presence => true
 	validates :nrc, :post, :address, :presence => true
 
 	has_many :ebooks

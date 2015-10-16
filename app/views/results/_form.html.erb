@@ -2,12 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :exam_id %>
-    <%= f.input :student_id %>
-    <%= f.input :setion_id %>
-    <%= f.input :subject_id %>
-    <%= f.input :result %>
-    <%= f.input :date %>
+    <%= f.input :exam_id, :as => :select, :collection=> ExamList.all.map { |e| [e.exam_date,e.id]  }%>
+    <%= f.input :student_id, :as => :select, :collection=> Student.all.map { |s| [s.student_name,s.id]  } %>
+    <%= f.input :section_id, :as => :select, :collection=> Section.all.map { |s| [s.section_name,s.id]  } %>
+    <%= f.input :subject_id, :as => :select, :collection=> Subject.all.map { |s| [s.subject_name,s.id]  } %>
+    <%= f.input :result, :as => :select, :collection => ['Fail', 'Pass','Credit','Distiction']  %>
+    <%= f.input :date, as: :string, input_html: { class: :datepicker }  %>
     <%= f.input :remark %>
   </div>
 

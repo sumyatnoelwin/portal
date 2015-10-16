@@ -17,7 +17,7 @@
 class StudentRegister < ActiveRecord::Base
 	validates :student_id, :section_id, :tution_fees, :exam_fees, :staff_id, :presence => true
 
-	has_one :student
+	belongs_to :student
 	belongs_to :section
 	belongs_to :staff 
 end

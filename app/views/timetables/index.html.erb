@@ -6,6 +6,36 @@
   <h1>Listing timetables</h1>
 </div>
 
+<div class="panel panel-primary" id="accordion">
+  <div class="panel-heading panel-layout">
+    <%= link_to '#search-form', 'data-toggle' => "collapse", 'data-parent' => "#accordion", 'aria-expanded' => "true", 'aria-controls' => "search-form" do %>
+    <h5 class="panel-layout"><b>Search Information</b></h5>
+    <% end %>
+  </div>
+  
+  <div class="panel-body panel-collapse collaspe in" id="search-form">
+    <%= form_tag timetables_path, :method => 'get' do %>
+      <div class="form-group">
+        <div class ="col-md-6 search-space">
+          <%= label :lecturer_id, "Lecturer Name" %> 
+          <%= select_tag :lecturer_id, options_from_collection_for_select(Lecturer.all, :id, :lecturer_name, params[:lecturer_id]), include_blank: true, :class => 'form-control' %>
+        </div>
+        <div class ="col-md-6 search-space">
+          <%= label :section_id, "Section No" %> 
+          <%= select_tag :section_id, options_from_collection_for_select(Section.all, :id, :section_name, params[:section_id]), include_blank: true, :class => 'form-control' %>
+        </div>
+        <div class ="col-md-6 search-space">
+          <%= label :subject_id, "Subject Name" %> 
+          <%= select_tag :subject_id, options_from_collection_for_select(Subject.all, :id, :subject_name, params[:subject_id]), include_blank: true, :class => 'form-control' %>
+        </div>
+        <div class="col-md-10">
+          <%= submit_tag :search, :class => "btn btn-default btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div> <!-- panel body -->
+</div> <!-- panel -->
+
 <div class="table-responsive">
   <table class="table table-striped table-hover">
     <thead>

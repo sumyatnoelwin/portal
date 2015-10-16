@@ -13,7 +13,7 @@
 # t.datetime "updated_at"
 
 class Lecturer < ActiveRecord::Base
-	validates :lecturer_name, :gender, :presence => true
+	validates :lecturer_name, :email, :presence => true
 	validates :address, :dob, :presence => true		
 
 	has_many :teching_schedules

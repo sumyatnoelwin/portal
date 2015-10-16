@@ -4,7 +4,13 @@ class TimetablesController < ApplicationController
   respond_to :html
 
   def index
-    @timetables = Timetable.all
+    if params[:lecturer_id] or params[:section_id] or params[:subject_id]
+      @timetables = Timetable.where('lecturer_id LIKE ? AND section_id LIKE ? AND
+       subject_id LIKE ?',"%#{params[:student_id]}%","%#{params[:section_id]}%",
+       "%#{params[:subject_id]}%").paginate(:page => params[:page], :per_page => 5)
+    else
+      @timetables = Timetable.all
+    end
     respond_with(@timetables)
   end
 

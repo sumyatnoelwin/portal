@@ -33,7 +33,7 @@
     <thead>
       <tr>
             <th>Lecturer name</th>
-            <th>Gender</th>
+            <th>Email</th>
             <th>Phone</th>
             <th></th>
         <th></th>
@@ -44,7 +44,7 @@
     <tbody>
       <%= content_tag_for(:tr, @lecturers) do |lecturer| %>
             <td><%= lecturer.lecturer_name %></td>
-            <td><%= lecturer.gender %></td>
+            <td><%= lecturer.email %></td>
             <td><%= lecturer.phone %></td>
             <td><%= link_to 'Show', lecturer %></td>
         <td><%= link_to 'Edit', edit_lecturer_path(lecturer) %></td>

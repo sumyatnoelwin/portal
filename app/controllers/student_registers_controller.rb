@@ -4,7 +4,12 @@ class StudentRegistersController < ApplicationController
   respond_to :html
 
   def index
-    @student_registers = StudentRegister.all
+    if params[:student_id] or params[:section_id] 
+      @student_registers = StudentRegister.where('student_id LIKE ? AND section_id LIKE ?', "%#{params[:student_id]}%",
+        "%#{params[:section_id]}%").paginate(:page => params[:page], :per_page => 5)
+    else
+      @student_registers = StudentRegister.all
+    end
     respond_with(@student_registers)
   end
 

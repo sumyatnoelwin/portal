@@ -4,7 +4,13 @@ class ResultsController < ApplicationController
   respond_to :html
 
   def index
-    @results = Result.all
+    if params[:student_id] or params[:section_id] or params[:subject_id]
+      @results = Result.where('student_id LIKE ? AND section_id LIKE ? AND
+       subject_id LIKE ?',"%#{params[:student_id]}%","%#{params[:section_id]}%",
+       "%#{params[:subject_id]}%").paginate(:page => params[:page], :per_page => 5)
+    else
+      @results = Result.all
+    end
     respond_with(@results)
   end
 
@@ -42,6 +48,6 @@ class ResultsController < ApplicationController
     end
 
     def result_params
-      params.require(:result).permit(:exam_id, :student_id, :setion_id, :subject_id, :result, :date, :remark)
+      params.require(:result).permit(:exam_id, :student_id, :section_id, :subject_id, :result, :date, :remark)
     end
 end

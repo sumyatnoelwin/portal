@@ -18,7 +18,7 @@
   <dd><%= @timetable.subject.subject_name %></dd>
 
   <dt>Room:</dt>
-  <dd><%= @timetable.room_id %></dd>
+  <dd><%= @timetable.room.no %></dd>
 
   <dt>Lecturer:</dt>
   <dd><%= @timetable.lecturer.lecturer_name %></dd>
@@ -33,6 +33,6 @@
   <dd><%= @timetable.description %></dd>
 
   <dt>Staff:</dt>
-  <dd><%= @timetable.staff_id %></dd>
+  <dd><%= @timetable.staff.staff_name %></dd>
 
 </dl>

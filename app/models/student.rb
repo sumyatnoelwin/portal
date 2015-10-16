@@ -18,6 +18,11 @@
 # t.datetime "updated_at"
 
 class Student < ActiveRecord::Base
+
+	extend Enumerize
+
+	enumerize :gender, in: { male: 1, female: 2 }, predicates: true
+
 	validates :student_name, :reg_no, :gender, :dob, :presence => true
 	validates :nrc, :address, :email, :section_id, :presence => true
 
