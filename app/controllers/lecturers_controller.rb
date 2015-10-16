@@ -48,6 +48,6 @@ class LecturersController < ApplicationController
     end
 
     def lecturer_params
-      params.require(:lecturer).permit(:lecturer_name, :gender, :dob, :nrc, :email, :address, :phone)
+      params.require(:lecturer).permit(:lecturer_name, :gender, :dob, :nrc, :email, :address, :phone, :password, :password_confirmation)
     end
 end

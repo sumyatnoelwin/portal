@@ -14,6 +14,10 @@
 # t.datetime "updated_at"
     
 class Staff < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 	validates :staff_name, :email, :dob, :presence => true
 	validates :nrc, :post, :address, :presence => true
 

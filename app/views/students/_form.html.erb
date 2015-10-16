@@ -10,6 +10,8 @@
     <%= f.input :nrc %>
     <%= f.input :address %>
     <%= f.input :email %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <%= f.input :password_confirmation, required: true %>
     <%= f.input :phone %>
     <%= f.input :section_id, :as => :select, :collection=> @sections.map { |s| [s.section_name,s.id]  } %>
     <%= f.input :guardian %>
