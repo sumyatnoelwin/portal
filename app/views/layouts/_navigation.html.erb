@@ -1,0 +1,63 @@
+<li><h4><%= link_to "Home", root_path %></h4></li> 
+
+<li><%= link_to "Room", rooms_path  %></li>
+
+<li>
+  <a data-toggle="collapse" href="#collapse1" aria-expanded = "false" aria-controls="collapse1"  %>
+      Teaching Staff
+  </a>
+    <ul class="collapse nav nav-list" id="collapse1">
+        <li> <%= link_to "・Lecturer", lecturers_path %></li>
+        <li> <%= link_to "・Staff", staffs_path %></li>
+    </ul>
+  <!-- Teaching Staff -->
+</li>
+
+<li>
+ <a data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+    Student Management
+  </a>
+  <ul class="collapse nav nav-list" id="collapse2">
+      <li> <%= link_to "・Student Registration", student_registers_path %></li>
+      <li> <%= link_to "・Student Information", students_path %></li>
+  </ul>
+</li> <!-- Student -->
+
+<li><%= link_to "Timetable", timetables_path  %></li>
+
+<li>
+ <a data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+    Exam Information
+  </a>
+  <ul class="collapse nav nav-list" id="collapse3">
+      <li> <%= link_to "・Exam List", exam_lists_path %></li>
+      <li> <%= link_to "・Exam Result", results_path %></li>
+  </ul>
+</li> <!-- Exam Information -->
+
+<li>
+ <a data-toggle="collapse" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
+    Education Information
+  </a>
+  <ul class="collapse nav nav-list" id="collapse4">
+      <li> <%= link_to "・Course", courses_path %></li>
+      <li> <%= link_to "・Section", sections_path %></li>
+      <li> <%= link_to "・Subject", subjects_path %></li>
+  </ul>
+</li> <!-- Education Information -->
+
+<li><%= link_to "Forum", forums_path  %></li>
+
+<li>
+ <a data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+    Ebook Library
+  </a>
+  <ul class="collapse nav nav-list" id="collapse5">
+      <li> <%= link_to "・Categories", categories_path %></li>
+      <li> <%= link_to "・Ebook", ebooks_path %></li>
+  </ul>
+</li> <!-- Ebook -->
+
+
+
+

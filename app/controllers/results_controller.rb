@@ -1,5 +1,6 @@
 class ResultsController < ApplicationController
   before_action :set_result, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_lecturer!, :authenticate_staff!, :authenticate_student!
 
   respond_to :html
 
@@ -40,6 +41,20 @@ class ResultsController < ApplicationController
   def destroy
     @result.destroy
     respond_with(@result)
+  end
+
+  def dynamic_student
+    @student = Student.where('section_id = ?', params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def dynamic_exam
+    @subject = ExamList.where('title = ?', params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

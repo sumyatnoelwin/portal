@@ -10,7 +10,7 @@
 # t.datetime "updated_at"
 
 class ExamList < ActiveRecord::Base
-	validates :exam_date, :course_id, :section_id, :subject_id, :presence => true
+	validates :exam_date, :course_id, :subject_id, :title, :presence => true
 
 	belongs_to :course
 	belongs_to :section

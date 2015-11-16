@@ -1,6 +1,7 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_lecturer!, :authenticate_staff!, :authenticate_student!
+  
   respond_to :html
 
   def index

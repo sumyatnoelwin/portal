@@ -6,6 +6,8 @@
 # t.integer  "subject_id"
 # t.integer  "room_id"
 # t.integer  "lecturer_id"
+# t.integer  "lecturer_id2"
+# t.datetime "date"
 # t.datetime "start_time"
 # t.datetime "end_time"
 # t.string   "description"
@@ -14,7 +16,7 @@
 # t.datetime "updated_at"
 
 class Timetable < ActiveRecord::Base
-	# validates :section_id, :subject_id, :lecturer_id, :start_time, :staff_id, :presence => true
+	validates :section_id, :subject_id, :lecturer_id, :date, :start_time, :staff_id, :presence => true
 
 	belongs_to :section
 	belongs_to :subject

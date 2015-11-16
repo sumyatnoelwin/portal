@@ -21,10 +21,10 @@
   <dd><%= @teaching_schedule.subject.subject_name %></dd>
 
   <dt>Start date:</dt>
-  <dd><%= @teaching_schedule.start_date %></dd>
+  <dd><%= @teaching_schedule.start_date.strftime("%d-%m-%Y") %></dd>
 
   <dt>End date:</dt>
-  <dd><%= @teaching_schedule.end_date %></dd>
+  <dd><%= @teaching_schedule.end_date.strftime("%d-%m-%Y") %></dd>
 
   <dt>Total:</dt>
   <dd><%= @teaching_schedule.total %></dd>

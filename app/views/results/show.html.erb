@@ -27,7 +27,7 @@
   <dd><%= @result.result %></dd>
 
   <dt>Date:</dt>
-  <dd><%= @result.date %></dd>
+  <dd><%= @result.date.strftime("%d-%m-%Y") %></dd>
 
   <dt>Remark:</dt>
   <dd><%= @result.remark %></dd>

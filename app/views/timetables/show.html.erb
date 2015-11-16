@@ -23,6 +23,12 @@
   <dt>Lecturer:</dt>
   <dd><%= @timetable.lecturer.lecturer_name %></dd>
 
+  <dt>Lecturer 2:</dt>
+  <dd><%= @timetable.lecturer.lecturer_name %></dd>
+
+  <dt>Date:</dt>
+  <dd><%= @timetable.date.strftime("%d-%m-%Y") %></dd>
+
   <dt>Start time:</dt>
   <dd><%= @timetable.start_time %></dd>
 

@@ -1,5 +1,6 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_lecturer!, :authenticate_staff!, :authenticate_student!
 
   respond_to :html
 

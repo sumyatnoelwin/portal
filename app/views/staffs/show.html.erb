@@ -15,7 +15,7 @@
   <dd><%= @staff.staff_name %></dd>
 
   <dt>Dob:</dt>
-  <dd><%= @staff.dob %></dd>
+  <dd><%= @staff.dob.strftime("%d-%m-%Y") %></dd>
 
   <dt>Nrc:</dt>
   <dd><%= @staff.nrc %></dd>

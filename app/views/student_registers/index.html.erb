@@ -9,7 +9,7 @@
 <div class="panel panel-primary" id="accordion">
   <div class="panel-heading panel-layout">
     <%= link_to '#search-form', 'data-toggle' => "collapse", 'data-parent' => "#accordion", 'aria-expanded' => "true", 'aria-controls' => "search-form" do %>
-    <h5 class="panel-layout"><b>Search Information</b></h5>
+    <h5 class="panel-layout"><b>▼ Search Information</b></h5>
     <% end %>
   </div>
 
@@ -50,9 +50,9 @@
 
     <tbody>
       <%= content_tag_for(:tr, @student_registers) do |student_register| %>
-            <td><%= student_register.student.student_name %></td>
+            <td><%= student_register.student_id %></td>
             <td><%= student_register.section.section_name %></td>
-            <td><%= student_register.register_date %></td>
+            <td><%= student_register.register_date.strftime("%d-%m-%Y") %></td>
             <td><%= student_register.complete_tf %></td>
             <td><%= student_register.complete_ef %></td>
             <td><%= link_to 'Show', student_register %></td>

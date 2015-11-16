@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :student_name %>
+    <%= f.input :student_name, :as => :select, :collection=> StudentRegister.all.map { |s| [s.student_id,s.id]  }  %>
     <%= f.input :reg_no %>
-    <%= f.input :profile %>
+    <%= f.file_field :profile %>
     <%= f.input :gender %>
     <%= f.input :dob, :as => :string, input_html: {class: :datepicker} %>
     <%= f.input :nrc %>
@@ -22,4 +22,10 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker({format: 'dd-mm-yyyy'});
+  });
+</script>
 

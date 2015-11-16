@@ -23,6 +23,8 @@ class Student < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+    mount_uploader :profile, ProfileUploader
+
 	extend Enumerize
 
 	enumerize :gender, in: { male: 1, female: 2 }, predicates: true

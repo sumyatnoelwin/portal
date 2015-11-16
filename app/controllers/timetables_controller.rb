@@ -1,5 +1,6 @@
 class TimetablesController < ApplicationController
   before_action :set_timetable, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_lecturer!, :authenticate_staff!, :authenticate_student!
 
   respond_to :html
 
@@ -48,6 +49,6 @@ class TimetablesController < ApplicationController
     end
 
     def timetable_params
-      params.require(:timetable).permit(:section_id, :subject_id, :room_id, :lecturer_id, :start_time, :end_time, :description, :staff_id)
+      params.require(:timetable).permit(:section_id, :subject_id, :room_id, :lecturer_id, :lecturer_id2, :date, :start_time, :end_time, :description, :staff_id)
     end
 end

@@ -49,7 +49,7 @@
       <%= content_tag_for(:tr, @sections) do |section| %>
             <td><%= section.section_name %></td>
             <td><%= section.course.course_name %></td>
-            <td><%= section.start_date %></td>
+            <td><%= section.start_date.strftime("%d-%m-%Y") %></td>
             <td><%= link_to 'Show', section %></td>
         <td><%= link_to 'Edit', edit_section_path(section) %></td>
         <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>

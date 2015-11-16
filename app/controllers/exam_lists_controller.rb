@@ -1,5 +1,6 @@
 class ExamListsController < ApplicationController
   before_action :set_exam_list, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_lecturer!, :authenticate_staff!, :authenticate_student!
 
   respond_to :html
 
@@ -48,12 +49,19 @@ class ExamListsController < ApplicationController
     respond_with(@exam_list)
   end
 
+  def dynamic_subject
+    @subs = Subject.where('course_id = ?', params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     def set_exam_list
       @exam_list = ExamList.find(params[:id])
     end
 
     def exam_list_params
-      params.require(:exam_list).permit(:course_id, :section_id, :subject_id, :exam_date)
+      params.require(:exam_list).permit(:title, :course_id, :section_id, :subject_id, :exam_date)
     end
 end

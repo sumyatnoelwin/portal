@@ -17,8 +17,8 @@
     <%= form_tag exam_lists_path, :method => 'get' do %>
       <div class="form-group">
         <div class ="col-md-6 search-space">
-          <%= label :course_id, "Course Name" %> 
-          <%= select_tag :course_id, options_from_collection_for_select(Course.all, :id, :course_name, params[:course_id]), include_blank: true, :class => 'form-control' %>
+          <%= label :title, "Exam Title" %> 
+          <%= text_field_tag :title ,params[:title], :class => "form-control" %>
         </div>
         <div class ="col-md-6 search-space">
           <%= label :section_id, "Section No" %> 
@@ -41,8 +41,7 @@
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-            <th>Course</th>
-            <th>Section</th>
+            <th>Exam Title</th>
             <th>Subject</th>
             <th>Exam date</th>
             <th></th>
@@ -53,10 +52,9 @@
 
     <tbody>
       <%= content_tag_for(:tr, @exam_lists) do |exam_list| %>
-            <td><%= exam_list.course.course_name %></td>
-            <td><%= exam_list.section.section_name %></td>
+            <td><%= exam_list.title %></td>
             <td><%= exam_list.subject.subject_name %></td>
-            <td><%= exam_list.exam_date %></td>
+            <td><%= exam_list.exam_date.strftime("%d-%m-%Y") %></td>
             <td><%= link_to 'Show', exam_list %></td>
         <td><%= link_to 'Edit', edit_exam_list_path(exam_list) %></td>
         <td><%= link_to 'Destroy', exam_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>

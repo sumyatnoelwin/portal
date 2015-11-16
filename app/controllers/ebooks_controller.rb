@@ -1,5 +1,7 @@
 class EbooksController < ApplicationController
   before_action :set_ebook, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_lecturer!, :authenticate_staff!
+  before_action :authenticate_student!, only: [:show]
 
   respond_to :html
 

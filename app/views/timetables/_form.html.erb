@@ -6,6 +6,8 @@
     <%= f.input :subject_id, :as => :select, :collection=> Subject.all.map { |s| [s.subject_name,s.id]  } %>
     <%= f.input :room_id, :as => :select, :collection=> Room.all.map { |r| [r.no, r.id] } %>
     <%= f.input :lecturer_id, :as => :select, :collection=> Lecturer.all.map { |l| [l.lecturer_name,l.id]  } %>
+    <%= f.input :lecturer_id2, :as => :select, :collection=> Lecturer.all.map { |l| [l.lecturer_name,l.id]  } %>
+    <%= f.input :date, as: :string, input_html: { class: :datepicker } %>
     <%= f.input :start_time %>
     <%= f.input :end_time %>
     <%= f.input :description %>
@@ -16,3 +18,8 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker({format: 'dd-mm-yyyy'});
+  });
+</script>

@@ -1,0 +1,7 @@
+$('#exam_list_subject_id').empty();
+$('#exam_list_subject_id').append("<option value=''>Select Subject</option>");
+
+<% for subject in @subs -%>
+	$('#exam_list_subject_id').append("<option value='<%= subject.id %>'><%= subject.subject_name %></option>");
+	
+<% end -%>

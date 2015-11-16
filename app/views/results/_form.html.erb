@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :exam_id, :as => :select, :collection=> ExamList.all.map { |e| [e.exam_date,e.id]  }%>
-    <%= f.input :student_id, :as => :select, :collection=> Student.all.map { |s| [s.student_name,s.id]  } %>
+    <%= f.input :exam_id, :as => :select, :collection=> ExamList.all.map { |e| [e.title,e.title]  }%>
     <%= f.input :section_id, :as => :select, :collection=> Section.all.map { |s| [s.section_name,s.id]  } %>
+    <%= f.input :student_id, :as => :select, :collection=> Student.all.map { |s| [s.student_name,s.id]  } %>
     <%= f.input :subject_id, :as => :select, :collection=> Subject.all.map { |s| [s.subject_name,s.id]  } %>
     <%= f.input :result, :as => :select, :collection => ['Fail', 'Pass','Credit','Distiction']  %>
     <%= f.input :date, as: :string, input_html: { class: :datepicker }  %>
@@ -15,3 +15,27 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker({format: 'dd-mm-yyyy'});
+  });
+
+  jQuery("#result_section_id").change(function(){
+    var section =$('#result_section_id').val();
+    $.ajax({
+      type: "POST",
+      url: "http://"+location.host+"/dynamic_student/"+ section
+    });
+  });
+
+  jQuery("#result_exam_id").change(function(){
+    var exam =$('#result_exam_id').val();
+    alert(exam);
+    $.ajax({
+      type: "POST",
+      url: "http://"+location.host+"/dynamic_exam/"+ exam
+    });
+  });
+
+</script>

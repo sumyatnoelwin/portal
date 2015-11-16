@@ -43,6 +43,7 @@
             <th>Section</th>
             <th>Subject</th>
             <th>Lecturer</th>
+            <th>Start Date</th>
             <th>Start Time</th>
             <th></th>
         <th></th>
@@ -55,6 +56,7 @@
             <td><%= timetable.section.section_name %></td>
             <td><%= timetable.subject.subject_name %></td>
             <td><%= timetable.lecturer.lecturer_name %></td>
+            <td><%= timetable.date.strftime("%d-%m-%Y") %></td>
             <td><%= timetable.start_time %></td>
             <td><%= link_to 'Show', timetable %></td>
         <td><%= link_to 'Edit', edit_timetable_path(timetable) %></td>

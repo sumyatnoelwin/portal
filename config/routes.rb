@@ -38,6 +38,13 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  post 'dynamic_subject/:id' => "exam_lists#dynamic_subject"
+
+  post 'dynamic_student/:id' => "results#dynamic_student"
+
+  post 'dynamic_exam/:id' => "results#dynamic_exam"
+
+  # get 'exam_list/update_subjects', as: 'update_subjects'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

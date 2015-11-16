@@ -18,10 +18,10 @@
   <dd><%= @section.course.course_name %></dd>
 
   <dt>Start date:</dt>
-  <dd><%= @section.start_date %></dd>
+  <dd><%= @section.start_date.strftime("%d-%m-%Y") %></dd>
 
   <dt>End date:</dt>
-  <dd><%= @section.end_date %></dd>
+  <dd><%= @section.end_date.strftime("%d-%m-%Y") %></dd>
 
   <dt>Start time:</dt>
   <dd><%= @section.start_time %></dd>

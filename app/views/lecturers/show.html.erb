@@ -15,7 +15,7 @@
   <dd><%= @lecturer.lecturer_name %></dd>
 
   <dt>Dob:</dt>
-  <dd><%= @lecturer.dob %></dd>
+  <dd><%= @lecturer.dob.strftime("%d-%m-%Y") %></dd>
 
   <dt>Nrc:</dt>
   <dd><%= @lecturer.nrc %></dd>
@@ -49,7 +49,7 @@
       <%= content_tag_for(:tr, @ts) do |teaching_schedule| %>
             <td><%= teaching_schedule.section.section_name %></td>
             <td><%= teaching_schedule.subject.subject_name %></td>
-            <td><%= teaching_schedule.start_date %></td>
+            <td><%= teaching_schedule.start_date.strftime("%d-%m-%Y") %></td>
             <td><%= link_to 'Show', teaching_schedule %></td>
         <td><%= link_to 'Edit', edit_teaching_schedule_path(teaching_schedule) %></td>
         <td><%= link_to 'Destroy', teaching_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>

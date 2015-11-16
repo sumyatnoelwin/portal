@@ -1,4 +1,5 @@
 class StudentRegistersController < ApplicationController
+  # before_filter :authenticate_lecturer!, :authenticate_staff!, :authenticate_student!
   before_action :set_student_register, only: [:show, :edit, :update, :destroy]
 
   respond_to :html

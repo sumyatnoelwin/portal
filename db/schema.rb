@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016092410) do
+ActiveRecord::Schema.define(version: 20151020024209) do
 
   create_table "categories", force: true do |t|
     t.string   "category_name"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20151016092410) do
     t.datetime "exam_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   create_table "forums", force: true do |t|
@@ -147,7 +148,7 @@ ActiveRecord::Schema.define(version: 20151016092410) do
   add_index "staffs", ["reset_password_token"], name: "index_staffs_on_reset_password_token", unique: true, using: :btree
 
   create_table "student_registers", force: true do |t|
-    t.integer  "student_id"
+    t.string  "student_id"
     t.integer  "section_id"
     t.integer  "tution_fees"
     t.integer  "exam_fees"
@@ -221,6 +222,8 @@ ActiveRecord::Schema.define(version: 20151016092410) do
     t.integer  "staff_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "date"
+    t.integer  "lecturer_id2"
   end
 
   create_table "users", force: true do |t|

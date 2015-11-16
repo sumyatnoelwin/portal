@@ -18,13 +18,13 @@
   <dd><%= @student.reg_no %></dd>
 
   <dt>Profile:</dt>
-  <dd><%= @student.profile %></dd>
+  <dd><%= image_tag(@student.profile_url) if @student.profile? %></dd>
 
   <dt>Gender:</dt>
   <dd><%= @student.gender %></dd>
 
   <dt>Dob:</dt>
-  <dd><%= @student.dob %></dd>
+  <dd><%= @student.dob.strftime("%d-%m-%Y") %></dd>
 
   <dt>Nrc:</dt>
   <dd><%= @student.nrc %></dd>

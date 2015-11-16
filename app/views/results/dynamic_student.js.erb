@@ -1,0 +1,7 @@
+$('#result_student_id').empty();
+$('#result_student_id').append("<option value=''>Select Student</option>");
+
+<% for student in @student -%>
+	$('#result_student_id').append("<option value='<%= student.id %>'><%= student.student_name %></option>");
+	
+<% end -%>
