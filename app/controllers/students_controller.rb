@@ -1,6 +1,5 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_lecturer!, :authenticate_staff!, :authenticate_student!
 
   respond_to :html
 
@@ -50,6 +49,6 @@ class StudentsController < ApplicationController
     end
 
     def student_params
-      params.require(:student).permit(:student_name, :reg_no, :profile, :gender, :dob, :nrc, :address, :email, :phone, :section_id, :guardian, :relation, :password, :password_confirmation)
+      params.require(:student).permit(:student_name, :reg_no, :profile, :gender, :dob, :nrc, :address, :email, :phone, :section_id, :guardian, :relation)
     end
 end

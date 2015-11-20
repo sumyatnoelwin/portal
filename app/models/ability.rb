@@ -1,11 +1,20 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(current_user)
 
-    user ||= Lecturer.new
-    if user_signed_in?
+    user = current_user || User.new
+    if user.role == 'Admin'
         can :manage, :all
+    elsif user.role == 'Student'
+        can :read, [Ebook, ExamList, Result, StudentRegister, Timetable]
+        can :manage, [Forum, Student]
+    elsif user.role == 'Staff'
+        can :manage, [Category, Ebook, Room, Staff, StudentRegister, Student, Timetable]
+        can :read, [Course, Subject, Section, ExamList, Result]
+    elsif user.role == 'Lecturer'
+        can :manage, [Course, Ebook, Lecturer, Subject, Section, ExamList, Result, Timetable]
+        can :read, [Category, Room, StudentRegister, Student]
     end
     # Define abilities for the passed in user here. For example:
     #

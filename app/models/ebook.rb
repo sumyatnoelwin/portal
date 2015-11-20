@@ -16,5 +16,7 @@ class Ebook < ActiveRecord::Base
 	mount_uploader :file, FileuploadUploader
 	belongs_to :category
 	belongs_to :staff
+
+
 end
 

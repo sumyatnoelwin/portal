@@ -1,6 +1,5 @@
 class LecturersController < ApplicationController
   before_action :set_lecturer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_lecturer!, :authenticate_staff!, :authenticate_student!
 
   respond_to :html
 
@@ -49,6 +48,6 @@ class LecturersController < ApplicationController
     end
 
     def lecturer_params
-      params.require(:lecturer).permit(:lecturer_name, :gender, :dob, :nrc, :email, :address, :phone, :password, :password_confirmation)
+      params.require(:lecturer).permit(:lecturer_name, :gender, :dob, :nrc, :email, :address, :phone)
     end
 end

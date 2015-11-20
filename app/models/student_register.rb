@@ -16,6 +16,7 @@
 
 class StudentRegister < ActiveRecord::Base
 	validates :student_id, :section_id, :tution_fees, :exam_fees, :staff_id, :presence => true
+	validates :student_id, uniqueness: { scope: :section_id }
 
 	belongs_to :student
 	belongs_to :section

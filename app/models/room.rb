@@ -9,7 +9,7 @@
 # t.datetime "updated_at"
 
 class Room < ActiveRecord::Base
-	validates :no, :presence => true
+	validates :no, :presence => true, :uniqueness => true
 
 	has_many :timetables
 end

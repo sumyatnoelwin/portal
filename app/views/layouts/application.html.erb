@@ -32,20 +32,18 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="/top/index">Home</a></li>
-          <% if lecturer_signed_in? %>
-            <li><%= link_to 'Logout', destroy_lecturer_session_path, :method=> 'delete' %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'Logout', destroy_user_session_path, :method=> 'delete' %></li>
+            <% if current_user.role == "Lecturer" %>
+              <% @Lecturer = Lecturer.where(:email => current_user.email) %>
+              
+            <% elsif current_user.role =="Staff" %>
+              <% staff = Staff.where(:email => current_user.email) %>
+              
+            
+            <% end %>
           <% else %>
-            <li><%= link_to 'Lecturer Log In', new_lecturer_session_path %> </li>
-          <% end %>
-          <% if student_signed_in? %>
-            <li><%= link_to 'Logout', destroy_student_session_path, :method=> 'delete' %></li>
-          <% else %>
-            <li><%= link_to 'Student Log In', new_student_session_path %> </li>
-          <% end %>
-          <% if staff_signed_in? %>
-            <li><%= link_to 'Logout', destroy_staff_session_path, :method=> 'delete' %></li>
-          <% else %>
-            <li><%= link_to 'Staff Log In', new_staff_session_path %> </li>
+            <li><%= link_to 'User Log In', new_user_session_path %> </li>
           <% end %>
       </div>
     </div>

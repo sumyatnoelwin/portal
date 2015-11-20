@@ -16,6 +16,10 @@ class Section < ActiveRecord::Base
 	validates :section_name, :course_id, :start_date, :end_date, :presence => true
 	validates :start_time, :end_time, :presence => true
 
+	validates_date :end_date, :after => :start_date, :after_message => "must be after start date" 
+	validates_datetime :end_time, :after => :start_time, :after_message => "must be after start time" 
+	validates :section_name, :uniqueness => true
+
 	has_many :teaching_schedules
 	has_many :exam_lists
 	belongs_to :course

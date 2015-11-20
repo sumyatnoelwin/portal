@@ -21,10 +21,6 @@
           <%= text_field_tag :title ,params[:title], :class => "form-control" %>
         </div>
         <div class ="col-md-6 search-space">
-          <%= label :section_id, "Section No" %> 
-          <%= select_tag :section_id, options_from_collection_for_select(Section.all, :id, :section_name, params[:section_id]), include_blank: true, :class => 'form-control' %>
-        </div>
-        <div class ="col-md-6 search-space">
           <%= label :subject_id, "Subject Name" %> 
           <%= select_tag :subject_id, options_from_collection_for_select(Subject.all, :id, :subject_name, params[:subject_id]), include_blank: true, :class => 'form-control' %>
         </div>

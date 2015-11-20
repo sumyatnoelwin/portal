@@ -1,6 +1,5 @@
 class StaffsController < ApplicationController
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_lecturer!, :authenticate_staff!, :authenticate_student!
 
   respond_to :html
 
@@ -43,6 +42,6 @@ class StaffsController < ApplicationController
     end
 
     def staff_params
-      params.require(:staff).permit(:staff_name, :gender, :dob, :nrc, :post, :email, :address, :phone, :password, :password_confirmation)
+      params.require(:staff).permit(:staff_name, :gender, :dob, :nrc, :post, :email, :address, :phone)
     end
 end

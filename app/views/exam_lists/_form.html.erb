@@ -3,8 +3,8 @@
 
   <div class="form-inputs">
     <%= f.input :title, :as => :select, :collection => ['Global Exam', 'Local Exam'] %>
-    <%= f.input :course_id, :as => :select, :collection=> @courses.map { |c| [c.course_name,c.id]  } %>
-    <%= f.input :subject_id, :as => :select, :collection=> @subjects.map { |s| [s.subject_name,s.id]  } %>
+    <%= f.input :course_id, :as => :select, :collection=> Course.all.map { |c| [c.course_name,c.id]  } %>
+    <%= f.input :subject_id, :as => :select, :collection=> Subject.all.map { |s| [s.subject_name,s.id]  } %>
     <%= f.input :exam_date, as: :string, input_html: { class: :datepicker }  %>
   </div>
 

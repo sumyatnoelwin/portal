@@ -12,6 +12,8 @@
 class ExamList < ActiveRecord::Base
 	validates :exam_date, :course_id, :subject_id, :title, :presence => true
 
+	validates :subject_id, uniqueness: { scope: :exam_date }
+	validates_date :exam_date, after: lambda { Date.current }, :after_message => 'must be valid exam date'
 	belongs_to :course
 	belongs_to :section
 	belongs_to :subject

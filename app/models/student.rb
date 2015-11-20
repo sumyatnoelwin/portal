@@ -18,10 +18,6 @@
 # t.datetime "updated_at"
 
 class Student < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
 
     mount_uploader :profile, ProfileUploader
 
@@ -31,8 +27,13 @@ class Student < ActiveRecord::Base
 
 	validates :student_name, :reg_no, :gender, :dob, :presence => true
 	validates :nrc, :address, :email, :section_id, :presence => true
+	validates :email, :uniqueness => true			
+	validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => 'Email format is invalid'	
 
 	belongs_to :section
 	has_many :forums
 	has_many :results
+
+	validates_date :dob, on_or_before: lambda { 15.years.ago }, :on_or_before_message => 'must be valid date of birth'
+
 end

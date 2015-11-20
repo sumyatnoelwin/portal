@@ -25,6 +25,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-timepicker-rails'
 gem 'enumerize'
+gem 'validates_timeliness', '~> 3.0'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 

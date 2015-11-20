@@ -16,7 +16,12 @@
 # t.datetime "updated_at"
 
 class Timetable < ActiveRecord::Base
-	validates :section_id, :subject_id, :lecturer_id, :date, :start_time, :staff_id, :presence => true
+	validates :section_id, :subject_id, :lecturer_id, :date, :start_time, :end_time, :staff_id, :presence => true
+
+	validates :room_id, uniqueness: { scope: :date && :start_time }
+	validates :lecturer_id, uniqueness: { scope: :date && :start_time }
+	validates_datetime :end_time, :after => :start_time, :after_message => "must be after start time" 
+	validates_time :start_time, :between => ['7:00am', '9:00pm']
 
 	belongs_to :section
 	belongs_to :subject

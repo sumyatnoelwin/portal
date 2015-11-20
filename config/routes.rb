@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :staffs, :controllers => { :registrations => "staffs/registrations" }
-  devise_for :students, :controllers => { :registrations => "students/registrations" }
-  devise_for :lecturers, :controllers => { :registrations => "lecturers/registrations" }
+  devise_for :users, :controllers => { :registrations => "users/registrations", :sessions => "users/sessions"}
+  # devise_for :users, :controllers => { :sessions => "users/sessions"}
+
+  resources :users
+
   resources :timetables
 
   resources :ebooks

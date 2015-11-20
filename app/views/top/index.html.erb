@@ -1,32 +1,34 @@
-<% if lecturer_signed_in? %>
-<h2> Teaching Schedule for Lecturer</h2>
-<div class="table-responsive">
-  <table class="table table-striped table-hover">
-    <thead>
-      <tr>
+<% if user_signed_in? %>
+  <% if current_user.role =="Lecturer" %>
+    <h2> Timetable</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
             <th>Lecturer name</th>
             <th>Section Name</th>
             <th>Subject Name</th>
             <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
 
-    <tbody>
-      <% @lecturer.each do |lecturer| %>
-        <% @ts = TeachingSchedule.where(:lecturer_id => lecturer.id) %>
-        <%= content_tag_for(:tr, @ts) do |teaching_schedule| %>
-            <td><%= teaching_schedule.lecturer.lecturer_name %></td>
-            <td><%= teaching_schedule.section.section_name %></td>
-            <td><%= teaching_schedule.subject.subject_name %></td>
-            <td><%= link_to 'Show', teaching_schedule %></td>
-        <td><%= link_to 'Edit', edit_teaching_schedule_path(teaching_schedule) %></td>
-        <td><%= link_to 'Destroy', teaching_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    <% end %>
-    </tbody>
-  </table>
-</div>
-
+        <tbody>
+          <% @lecturer.each do |lecturer| %>
+            <% @time = Timetable.where(:lecturer_id => lecturer.id) %>
+            <%= content_tag_for(:tr, @time) do |timetable| %>
+                <td><%= timetable.lecturer.lecturer_name %></td>
+                <td><%= timetable.section.section_name %></td>
+                <td><%= timetable.subject.subject_name %></td>
+                <td><%= timetable.start_time %></td>
+                <td><%= link_to 'Show', timetable %></td>
+            <td><%= link_to 'Edit', edit_timetable_path(timetable) %></td>
+            <td><%= link_to 'Destroy', timetable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 <% end %>
