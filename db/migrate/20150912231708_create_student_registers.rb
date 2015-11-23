@@ -8,7 +8,7 @@ class CreateStudentRegisters < ActiveRecord::Migration
       t.datetime :register_date
       t.boolean :complete_tf
       t.boolean :complete_ef
-      t.integer :staff_id
+      t.string :staff_id
       t.string :remark
 
       t.timestamps

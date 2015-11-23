@@ -10,26 +10,28 @@
   <h1>Show section</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Section name:</dt>
-  <dd><%= @section.section_name %></dd>
+<div class="table-responsive">
+  <table class="table table-hover">
+  <tr><th>Section name:</th>
+  <td><%= @section.section_name %></td></tr>
 
-  <dt>Course:</dt>
-  <dd><%= @section.course.course_name %></dd>
+  <tr><th>Course:</th>
+  <td><%= @section.course.course_name %></td></tr>
 
-  <dt>Start date:</dt>
-  <dd><%= @section.start_date.strftime("%d-%m-%Y") %></dd>
+  <tr><th>Start date:</th>
+  <td><%= @section.start_date.strftime("%d-%m-%Y") %></td></tr>
 
-  <dt>End date:</dt>
-  <dd><%= @section.end_date.strftime("%d-%m-%Y") %></dd>
+  <tr><th>End date:</th>
+  <td><%= @section.end_date.strftime("%d-%m-%Y") %></td></tr>
 
-  <dt>Start time:</dt>
-  <dd><%= @section.start_time %></dd>
+  <tr><th>Start time:</th>
+  <td><%= @section.start_time %></td></tr>
 
-  <dt>End time:</dt>
-  <dd><%= @section.end_time %></dd>
+  <tr><th>End time:</th>
+  <td><%= @section.end_time %></td></tr>
 
-  <dt>Description:</dt>
-  <dd><%= @section.description %></dd>
+  <tr><th>Description:</th>
+  <td><%= @section.description %></td></tr>
 
-</dl>
+</table>
+</div>

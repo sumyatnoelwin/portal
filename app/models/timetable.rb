@@ -16,7 +16,7 @@
 # t.datetime "updated_at"
 
 class Timetable < ActiveRecord::Base
-	validates :section_id, :subject_id, :lecturer_id, :date, :start_time, :end_time, :staff_id, :presence => true
+	validates :section_id, :subject_id, :lecturer_id, :date, :start_time, :end_time, :presence => true
 
 	validates :room_id, uniqueness: { scope: :date && :start_time }
 	validates :lecturer_id, uniqueness: { scope: :date && :start_time }

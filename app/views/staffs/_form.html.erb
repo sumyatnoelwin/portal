@@ -3,8 +3,8 @@
 
   <div class="form-inputs">
     <%= f.input :staff_name %>
-    <%= f.input :dob, as: :string, input_html: {class: :datepicker} %>
-    <%= f.input :nrc %>
+    <%= f.input :dob, :label => "Date of Birth",as: :string, input_html: {class: :datepicker} %>
+    <%= f.input :nrc, :label => "NRC No" %>
     <%= f.input :post %>
     <%= f.input :email %>
     <%= f.input :address %>

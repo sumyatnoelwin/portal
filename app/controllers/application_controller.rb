@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   load_and_authorize_resource :except => :create
+  # before_filter :authenticate_user!
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to :root, alert: exception.message

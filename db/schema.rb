@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20151118080103) do
   end
 
   create_table "comments", force: true do |t|
-    t.integer  "student_id"
+    t.string   "student_id"
     t.text     "body"
     t.integer  "forum_id"
     t.datetime "created_at"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20151118080103) do
     t.string   "file"
     t.string   "about"
     t.integer  "category_id"
-    t.integer  "uploader_id"
+    t.string   "uploader_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20151118080103) do
     t.integer  "section_id"
     t.integer  "subject_id"
     t.datetime "exam_date"
+    t.datetime "exam_time"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
@@ -60,7 +61,7 @@ ActiveRecord::Schema.define(version: 20151118080103) do
   create_table "forums", force: true do |t|
     t.string   "title"
     t.string   "description"
-    t.integer  "author_id"
+    t.string   "author_id"
     t.datetime "date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -131,7 +132,7 @@ ActiveRecord::Schema.define(version: 20151118080103) do
     t.datetime "register_date"
     t.boolean  "complete_tf"
     t.boolean  "complete_ef"
-    t.integer  "staff_id"
+    t.string   "staff_id"
     t.string   "remark"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -183,7 +184,7 @@ ActiveRecord::Schema.define(version: 20151118080103) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.string   "description"
-    t.integer  "staff_id"
+    t.string   "staff_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "date"

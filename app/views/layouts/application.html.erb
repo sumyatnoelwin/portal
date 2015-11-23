@@ -35,11 +35,22 @@
           <% if user_signed_in? %>
             <li><%= link_to 'Logout', destroy_user_session_path, :method=> 'delete' %></li>
             <% if current_user.role == "Lecturer" %>
-              <% @Lecturer = Lecturer.where(:email => current_user.email) %>
-              
+              <% @lecturer = Lecturer.where(:email => current_user.email) %>
+              <% @lecturer.each do |lecturer| %>
+                <li><%= link_to lecturer.lecturer_name, lecturer_path(lecturer.id) %></li>
+              <% end %>
+
             <% elsif current_user.role =="Staff" %>
-              <% staff = Staff.where(:email => current_user.email) %>
-              
+              <% @staff = Staff.where(:email => current_user.email) %>
+              <% @staff.each do |staff| %>
+                <li><%= link_to staff.staff_name, staff_path(staff.id) %></li>
+              <% end %> 
+
+            <% elsif current_user.role =="Student" %>
+              <% @student = Student.where(:email => current_user.email) %>
+              <% @student.each do |student| %>
+                <li><%= link_to student.student_name, student_path(student.id) %></li>
+              <% end %>                   
             
             <% end %>
           <% else %>
@@ -57,6 +68,8 @@
     <% end %>
 
     <div class="row">  
+        <% if user_signed_in? %>
+
       <div class="col-lg-3">
         <div class="well sidebar-nav">
           <ul class="nav nav-list">         
@@ -66,13 +79,15 @@
           </ul>
         </div><!--/.well -->
       </div><!--/span-->
+          <% end %>
+
       <div class="col-lg-8">
         <%= yield %>
       </div>
     </div><!--/row-->
 
     <footer>
-      <p>&copy; Company 2015</p>
+      <p>&copy; University Portal System 2015</p>
     </footer>
   </div>
 </body>

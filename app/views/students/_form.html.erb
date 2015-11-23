@@ -2,16 +2,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :student_name, :as => :select, :collection=> StudentRegister.all.map { |s| [s.student_id,s.id]  }  %>
-    <%= f.input :reg_no %>
-    <%= f.file_field :profile %>
+    <%= f.input :student_name, :as => :select, :collection=> StudentRegister.all.map { |s| [s.student_id,s.student_id]  }  %>
+    <%= f.input :reg_no, :label => "Registration No" %>
+    <%= f.label :profile %>
+    <%= f.file_field :profile %></br>
     <%= f.input :gender %>
-    <%= f.input :dob, :as => :string, input_html: {class: :datepicker} %>
-    <%= f.input :nrc %>
+    <%= f.input :dob, :label => "Date of Birth", :as => :string, input_html: {class: :datepicker} %>
+    <%= f.input :nrc, :label => "NRC No" %>
     <%= f.input :address %>
     <%= f.input :email %>
     <%= f.input :phone %>
-    <%= f.input :section_id, :as => :select, :collection=> @sections.map { |s| [s.section_name,s.id]  } %>
+    <%= f.input :section_id, :as => :select, :collection=> Section.all.map { |s| [s.section_name,s.id]  } %>
     <%= f.input :guardian %>
     <%= f.input :relation %>
   </div>

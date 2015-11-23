@@ -18,7 +18,7 @@
       <div class="form-group">
         <div class ="col-md-6 search-space">
           <%= label :student_name, "Student Name" %> 
-          <%= text_field_tag :student_name ,params[:student_name], :class => "form-control" %>
+          <%= select_tag :student_name, options_from_collection_for_select(StudentRegister.all, :student_id, :student_id, params[:student_name]), include_blank: true, :class => 'form-control' %>
         </div>
         <div class ="col-md-6 search-space">
           <%= label :section_id, "Section No" %> 

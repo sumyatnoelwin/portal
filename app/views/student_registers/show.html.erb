@@ -7,35 +7,50 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show student_register</h1>
+  <h1>Show Student Registration</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Student:</dt>
-  <dd><%= @student_register.student_id %></dd>
+<div class="table-responsive">
+  <table class="table table-hover">
 
-  <dt>Section:</dt>
-  <dd><%= @student_register.section.section_name %></dd>
+  <tr><th>Student:</th>
+  <td><%= @student_register.student_id %></td></tr>
 
-  <dt>Tution fees:</dt>
-  <dd><%= @student_register.tution_fees %></dd>
+  <tr><th>Section:</th>
+  <td><%= @student_register.section.section_name %></td></tr>
 
-  <dt>Exam fees:</dt>
-  <dd><%= @student_register.exam_fees %></dd>
+  <tr><th>Tution fees:</th>
+  <td><%= @student_register.tution_fees %></td></tr>
 
-  <dt>Register date:</dt>
-  <dd><%= @student_register.register_date.strftime("%d-%m-%Y") %></dd>
+  <tr><th>Exam fees:</th>
+  <td><%= @student_register.exam_fees %></td></tr>
 
-  <dt>Complete tf:</dt>
-  <dd><%= @student_register.complete_tf %></dd>
+  <tr><th>Register date:</th>
+  <td><%= @student_register.register_date.strftime("%d-%m-%Y") %></td></tr>
 
-  <dt>Complete ef:</dt>
-  <dd><%= @student_register.complete_ef %></dd>
+  <% if @student_register.complete_tf == true %>
+    <% tutionfees = 'Yes' %>
+  <% else %>
+    <% tutionfees = 'No' %>
+  <% end %>
 
-  <dt>Staff:</dt>
-  <dd><%= @student_register.staff.staff_name %></dd>
+  <tr><th>Tution Fees Complete:</th>
+  <td><%= tutionfees %></td></tr>
 
-  <dt>Remark:</dt>
-  <dd><%= @student_register.remark %></dd>
+  <% if @student_register.complete_ef == true %>
+    <% examfees = 'Yes' %>
+  <% else %>
+    <% examfees = 'No' %>
+  <% end %>
 
-</dl>
+  <tr><th>Exam Fees Complete:</th>
+  <td><%= examfees %></td></tr>
+
+  <tr><th>Staff:</th>
+  <td><%= @student_register.staff_id %></td></tr>
+
+  <tr><th>Remark:</th>
+  <td><%= @student_register.remark %></td></tr>
+
+</table>
+</div>

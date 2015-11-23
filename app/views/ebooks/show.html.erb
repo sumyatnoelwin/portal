@@ -10,20 +10,22 @@
   <h1>Show ebook</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Ebook name:</dt>
-  <dd><%= @ebook.ebook_name %></dd>
+<div class="table-responsive">
+  <table class="table table-hover">
+  <tr><th>Ebook name:</th>
+  <td><%= @ebook.ebook_name %></td></tr>
 
-  <dt>File:</dt>
-  <dd><%= link_to @ebook.ebook_name, @ebook.file_url %></dd>
+  <tr><th>File:</th>
+  <td><%= link_to @ebook.ebook_name, @ebook.file_url %></td></tr>
 
-  <dt>About:</dt>
-  <dd><%= @ebook.about %></dd>
+  <tr><th>About:</th>
+  <td><%= @ebook.about %></td></tr>
 
-  <dt>Category:</dt>
-  <dd><%= @ebook.category.category_name %></dd>
+  <tr><th>Category:</th>
+  <td><%= @ebook.category.category_name %></td></tr>
 
-  <dt>Uploader:</dt>
-  <dd><%= @ebook.uploader_id %></dd>
+  <tr><th>Uploader:</th>
+  <td><%= @ebook.uploader_id %></td></tr>
 
-</dl>
+</table>
+</div>

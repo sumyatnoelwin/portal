@@ -45,7 +45,7 @@
       <%= content_tag_for(:tr, @forums) do |forum| %>
             <td><%= forum.title %></td>
             <td><%= forum.author_id %></td>
-            <td><%= forum.date %></td>
+            <td><%= forum.date.strftime("%d-%m-%Y") %></td>
             <td><%= link_to 'Show', forum %></td>
         <td><%= link_to 'Edit', edit_forum_path(forum) %></td>
         <td><%= link_to 'Destroy', forum, method: :delete, data: { confirm: 'Are you sure?' } %></td>

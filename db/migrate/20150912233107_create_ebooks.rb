@@ -5,7 +5,7 @@ class CreateEbooks < ActiveRecord::Migration
       t.string :file
       t.string :about
       t.integer :category_id
-      t.integer :uploader_id
+      t.string :uploader_id
 
       t.timestamps
     end

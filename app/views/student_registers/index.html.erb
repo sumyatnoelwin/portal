@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Student register
   <% end %>
-  <h1>Listing student_registers</h1>
+  <h1>Listing Student Registration</h1>
 </div>
 
 <div class="panel panel-primary" id="accordion">
@@ -17,8 +17,8 @@
     <%= form_tag student_registers_path, :method => 'get' do %>
       <div class="form-group">
         <div class ="col-md-6 search-space">
-          <%= label :student_id, "Student Name" %> 
-          <%= select_tag :student_id, options_from_collection_for_select(Student.all, :id, :student_name, params[:student_id]), include_blank: true, :class => 'form-control' %>
+          <%= label :student_id, "Student Name" %>
+          <%= text_field_tag :student_id ,params[:student_id], :class => "form-control" %> 
         </div>
         <div class ="col-md-6 search-space">
           <%= label :section_id, "Section No" %> 
@@ -40,8 +40,6 @@
             <th>Student</th>
             <th>Section</th>
             <th>Register date</th>
-            <th>Complete tf</th>
-            <th>Complete ef</th>
             <th></th>
         <th></th>
         <th></th>
@@ -53,8 +51,6 @@
             <td><%= student_register.student_id %></td>
             <td><%= student_register.section.section_name %></td>
             <td><%= student_register.register_date.strftime("%d-%m-%Y") %></td>
-            <td><%= student_register.complete_tf %></td>
-            <td><%= student_register.complete_ef %></td>
             <td><%= link_to 'Show', student_register %></td>
         <td><%= link_to 'Edit', edit_student_register_path(student_register) %></td>
         <td><%= link_to 'Destroy', student_register, method: :delete, data: { confirm: 'Are you sure?' } %></td>

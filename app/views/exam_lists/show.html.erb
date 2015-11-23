@@ -7,20 +7,22 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show exam_list</h1>
+  <h1>Show exam list</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Exam Title:</dt>
-  <dd><%= @exam_list.title %></dd>
+<div class="table-responsive">
+  <table class="table table-hover">
+  <tr><th>Exam Title:</th>
+  <td><%= @exam_list.title %></td></tr>
 
-  <dt>Course:</dt>
-  <dd><%= @exam_list.course.course_name %></dd>
+  <tr><th>Course:</th>
+  <td><%= @exam_list.course.course_name %></td></tr>
 
-  <dt>Subject:</dt>
-  <dd><%= @exam_list.subject.subject_name %></dd>
+  <tr><th>Subject:</th>
+  <td><%= @exam_list.subject.subject_name %></td></tr>
 
-  <dt>Exam date:</dt>
-  <dd><%= @exam_list.exam_date.strftime("%d-%m-%Y") %></dd>
+  <tr><th>Exam date:</th>
+  <td><%= @exam_list.exam_date.strftime("%d-%m-%Y") %></td></tr>
 
-</dl>
+</table>
+</div>

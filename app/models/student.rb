@@ -31,6 +31,7 @@ class Student < ActiveRecord::Base
 	validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => 'Email format is invalid'	
 
 	belongs_to :section
+	has_many :student_registers
 	has_many :forums
 	has_many :results
 

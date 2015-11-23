@@ -1,5 +1,6 @@
 class EbooksController < ApplicationController
   before_action :set_ebook, only: [:show, :edit, :update, :destroy]
+  before_filter :current_user
 
   respond_to :html
 
@@ -31,6 +32,19 @@ class EbooksController < ApplicationController
 
   def create
     @ebook = Ebook.new(ebook_params)
+
+    if current_user.role == "Staff"
+      @staff = Staff.where(:email => current_user.email)
+      @staff.each do |staff| 
+        @ebook.uploader_id = staff.id
+      end
+    elsif current_user.role == "Lecturer"
+      @lecturer = Lecturer.where(:email => current_user.email)
+      @lecturer.each do |lecturer| 
+        @ebook.uploader_id = lecturer.id
+      end
+    end
+
     @ebook.save
     respond_with(@ebook)
   end

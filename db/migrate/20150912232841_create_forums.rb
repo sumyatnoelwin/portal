@@ -3,7 +3,7 @@ class CreateForums < ActiveRecord::Migration
     create_table :forums do |t|
       t.string :title
       t.string :description
-      t.integer :author_id
+      t.string :author_id
       t.datetime :date
 
       t.timestamps

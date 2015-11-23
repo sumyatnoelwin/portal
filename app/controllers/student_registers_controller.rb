@@ -1,6 +1,7 @@
 class StudentRegistersController < ApplicationController
   # before_filter :authenticate_lecturer!, :authenticate_staff!, :authenticate_student!
   before_action :set_student_register, only: [:show, :edit, :update, :destroy]
+  before_filter :current_user
 
   respond_to :html
 
@@ -28,6 +29,13 @@ class StudentRegistersController < ApplicationController
 
   def create
     @student_register = StudentRegister.new(student_register_params)
+    @student_register.register_date = Date.today
+
+    @user_id = Staff.where(:email => current_user.email)
+    @user_id.each do |user|
+      @student_register.staff_id = user.id
+    end
+
     @student_register.save
     respond_with(@student_register)
   end

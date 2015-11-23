@@ -10,26 +10,29 @@
   <h1>Show lecturer</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Lecturer name:</dt>
-  <dd><%= @lecturer.lecturer_name %></dd>
 
-  <dt>Dob:</dt>
-  <dd><%= @lecturer.dob.strftime("%d-%m-%Y") %></dd>
+<div class="table-responsive">
+  <table class="table table-hover">
+  <tr><th>Lecturer name:</th>
+  <td><%= @lecturer.lecturer_name %></td></tr>
 
-  <dt>Nrc:</dt>
-  <dd><%= @lecturer.nrc %></dd>
+  <tr><th>Date of Birth:</th>
+  <td><%= @lecturer.dob.strftime("%d-%m-%Y") %></td></tr>
 
-  <dt>Email:</dt>
-  <dd><%= @lecturer.email %></dd>
+  <tr><th>NRC No:</th>
+  <td><%= @lecturer.nrc %></td></tr>
 
-  <dt>Address:</dt>
-  <dd><%= @lecturer.address %></dd>
+  <tr><th>Email:</th>
+  <td><%= @lecturer.email %></td></tr>
 
-  <dt>Phone:</dt>
-  <dd><%= @lecturer.phone %></dd>
+  <tr><th>Address:</th>
+  <td><%= @lecturer.address %></td></tr>
 
-</dl>
+  <tr><th>Phone:</th>
+  <td><%= @lecturer.phone %></td></tr>
+
+</table>
+</div>
 </br>
   <h3>Teaching Schedule for lecturer</h3>
 <div class="table-responsive">

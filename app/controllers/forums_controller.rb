@@ -22,6 +22,15 @@ class ForumsController < ApplicationController
 
   def create
     @forum = Forum.new(forum_params)
+    @forum.date = Date.today
+
+    if current_user.role == "Student"
+      @student = Student.where(:email => current_user.email)
+      @student.each do |student| 
+        @forum.author_id = student.id
+      end
+    end
+
     @forum.save
     respond_with(@forum)
   end

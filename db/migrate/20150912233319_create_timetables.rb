@@ -8,7 +8,7 @@ class CreateTimetables < ActiveRecord::Migration
       t.datetime :start_time
       t.datetime :end_time
       t.string :description
-      t.integer :staff_id
+      t.string :staff_id
 
       t.timestamps
     end

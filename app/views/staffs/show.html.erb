@@ -10,26 +10,28 @@
   <h1>Show staff</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Staff name:</dt>
-  <dd><%= @staff.staff_name %></dd>
+<div class="table-responsive">
+  <table class="table table-hover">
+  <tr><th>Staff name:</th>
+  <td><%= @staff.staff_name %></td></tr>
 
-  <dt>Dob:</dt>
-  <dd><%= @staff.dob.strftime("%d-%m-%Y") %></dd>
+  <tr><th>Dob:</th>
+  <td><%= @staff.dob.strftime("%d-%m-%Y") %></td></tr>
 
-  <dt>Nrc:</dt>
-  <dd><%= @staff.nrc %></dd>
+  <tr><th>Nrc:</th>
+  <td><%= @staff.nrc %></td></tr>
 
-  <dt>Post:</dt>
-  <dd><%= @staff.post %></dd>
+  <tr><th>Post:</th>
+  <td><%= @staff.post %></td></tr>
 
-  <dt>Email:</dt>
-  <dd><%= @staff.email %></dd>
+  <tr><th>Email:</th>
+  <td><%= @staff.email %></td></tr>
 
-  <dt>Address:</dt>
-  <dd><%= @staff.address %></dd>
+  <tr><th>Address:</th>
+  <td><%= @staff.address %></td></tr>
 
-  <dt>Phone:</dt>
-  <dd><%= @staff.phone %></dd>
+  <tr><th>Phone:</th>
+  <td><%= @staff.phone %></td></tr>
 
-</dl>
+</table>
+</div>

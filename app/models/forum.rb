@@ -10,8 +10,8 @@
 # t.datetime "updated_at"
 
 class Forum < ActiveRecord::Base
-	validates :title, :author_id, :presence => true
+	validates :title, :description, :presence => true
 
-	belongs_to :student
+	belongs_to :student_register
 	has_many :comments
 end

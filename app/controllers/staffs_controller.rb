@@ -4,7 +4,12 @@ class StaffsController < ApplicationController
   respond_to :html
 
   def index
-    @staffs = Staff.all
+    if params[:lecturer_name] 
+      @staffs = Staff.where('staff_name LIKE ? ',"%#{params[:staff_name]}%")
+      .paginate(:page => params[:page], :per_page => 5)
+    else
+      @staffs = Staff.all
+    end
     respond_with(@staffs)
   end
 

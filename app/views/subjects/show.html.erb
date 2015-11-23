@@ -10,14 +10,17 @@
   <h1>Show subject</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Subject name:</dt>
-  <dd><%= @subject.subject_name %></dd>
 
-  <dt>Course:</dt>
-  <dd><%= @subject.course.course_name %></dd>
+<div class="table-responsive">
+  <table class="table table-hover">
+  <tr><th>Subject name:</th>
+  <td><%= @subject.subject_name %></td></tr>
 
-  <dt>Description:</dt>
-  <dd><%= @subject.description %></dd>
+  <tr><th>Course:</th>
+  <td><%= @subject.course.course_name %></td></tr>
 
-</dl>
+  <tr><th>Description:</th>
+  <td><%= @subject.description %></td></tr>
+
+</table>
+</div>

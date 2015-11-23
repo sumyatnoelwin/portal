@@ -6,10 +6,8 @@
     <%= f.input :section_id, :as => :select, :collection=> Section.all.map { |s| [s.section_name,s.id]  } %>
     <%= f.input :tution_fees %>
     <%= f.input :exam_fees %>
-    <%= f.input :register_date, as: :string, input_html: { class: :datepicker } %>
-    <%= f.input :complete_tf %>
-    <%= f.input :complete_ef %>
-    <%= f.input :staff_id, :as => :select, :collection=> Staff.all.map { |s| [s.staff_name,s.id]  } %>
+    <%= f.input :complete_tf, :label => "Complete Tution Fees?" %>
+    <%= f.input :complete_ef, :label => "Complete Education Fees?" %>
     <%= f.input :remark %>
   </div>
 

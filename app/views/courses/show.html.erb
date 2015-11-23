@@ -10,14 +10,16 @@
   <h1>Show course</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Course name:</dt>
-  <dd><%= @course.course_name %></dd>
+<div class="table-responsive">
+  <table class="table table-hover">
+  <tr><th>Course name:</th>
+  <td><%= @course.course_name %></td></tr>
 
-  <dt>Related field:</dt>
-  <dd><%= @course.related_field %></dd>
+  <tr><th>Related field:</th>
+  <td><%= @course.related_field %></td></tr>
 
-  <dt>Description:</dt>
-  <dd><%= @course.description %></dd>
+  <tr><th>Description:</th>
+  <td><%= @course.description %></td></tr>
 
-</dl>
+</table>
+</div>

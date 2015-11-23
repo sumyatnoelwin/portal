@@ -7,25 +7,19 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show forum</h1>
+  <h2><%= @forum.title %></h2>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Title:</dt>
-  <dd><%= @forum.title %></dd>
+<div class="table-responsive">
+  <table class="table table-hover">
+  <tr><td><%= @forum.author_id %></td>
+  <td><%= @forum.date.strftime("%d-%m-%Y") %></td></tr>
 
-  <dt>Description:</dt>
-  <dd><%= @forum.description %></dd>
+  <tr><td><%= @forum.description %></td><td></td></tr>
 
-  <dt>Author:</dt>
-  <dd><%= @forum.author_id %></dd>
+</table>
+</div>
 
-  <dt>Date:</dt>
-  <dd><%= @forum.date %></dd>
-</dl>
-
-<h2>Comments</h2>
 <%= render @forum.comments %>
  
-<h2>Add a comment:</h2>
 <%= render 'comments/form' %>

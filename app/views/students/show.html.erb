@@ -7,44 +7,47 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show student</h1>
+  <h1>Show student information</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Student name:</dt>
-  <dd><%= @student.student_name %></dd>
+<div class="table-responsive">
+  <table class="table table-hover">
 
-  <dt>Reg no:</dt>
-  <dd><%= @student.reg_no %></dd>
+  <tr><th>Profile:</th>
+  <td><%= image_tag @student.profile_url, :size => '150x180' if @student.profile? %></td></tr>
 
-  <dt>Profile:</dt>
-  <dd><%= image_tag(@student.profile_url) if @student.profile? %></dd>
+  <tr><th>Student name:</th>
+  <td><%= @student.student_name %></td></tr>
 
-  <dt>Gender:</dt>
-  <dd><%= @student.gender %></dd>
+  <tr><th>Register no:</th>
+  <td><%= @student.reg_no %></td></tr>
 
-  <dt>Dob:</dt>
-  <dd><%= @student.dob.strftime("%d-%m-%Y") %></dd>
+  <tr><th>Gender:</th>
+  <td><%= @student.gender %></td></tr>
 
-  <dt>Nrc:</dt>
-  <dd><%= @student.nrc %></dd>
+  <tr><th>Date of Birth:</th>
+  <td><%= @student.dob.strftime("%d-%m-%Y") %></td></tr>
 
-  <dt>Address:</dt>
-  <dd><%= @student.address %></dd>
+  <tr><th>NRC No:</th>
+  <td><%= @student.nrc %></td></tr>
 
-  <dt>Email:</dt>
-  <dd><%= @student.email %></dd>
+  <tr><th>Address:</th>
+  <td><%= @student.address %></td></tr>
 
-  <dt>Phone:</dt>
-  <dd><%= @student.phone %></dd>
+  <tr><th>Email:</th>
+  <td><%= @student.email %></td></tr>
 
-  <dt>Section:</dt>
-  <dd><%= @student.section.section_name %></dd>
+  <tr><th>Phone:</th>
+  <td><%= @student.phone %></td></tr>
 
-  <dt>Guardian:</dt>
-  <dd><%= @student.guardian %></dd>
+  <tr><th>Section:</th>
+  <td><%= @student.section.section_name %></td></tr>
 
-  <dt>Relation:</dt>
-  <dd><%= @student.relation %></dd>
+  <tr><th>Guardian:</th>
+  <td><%= @student.guardian %></td></tr>
 
-</dl>
+  <tr><th>Relation with Guardian:</th>
+  <td><%= @student.relation %></td></tr>
+
+</table>
+</div>

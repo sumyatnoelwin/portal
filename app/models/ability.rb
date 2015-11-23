@@ -8,7 +8,7 @@ class Ability
         can :manage, :all
     elsif user.role == 'Student'
         can :read, [Ebook, ExamList, Result, StudentRegister, Timetable]
-        can :manage, [Forum, Student]
+        can :manage, [Forum, Student, Comment]
     elsif user.role == 'Staff'
         can :manage, [Category, Ebook, Room, Staff, StudentRegister, Student, Timetable]
         can :read, [Course, Subject, Section, ExamList, Result]
